@@ -104,12 +104,8 @@ footer{margin-top:auto;padding-top:80px;color:#4a5040;font-size:.75rem;letter-sp
 document.getElementById('devBtn').onclick = function() {
   var pass = prompt("Введите пароль для доступа к файлам разработчика:");
   if (pass === "44441111") {
-    var a = document.createElement('a');
-    a.href = 'server.zip'; // Скачивание архива с сервером
-    a.download = 'server.zip';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+    // ВСТАВЬ СВОЮ ССЫЛКУ НА GOOGLE ДИСК НИЖЕ (вместо ТВОЯ_ССЫЛКА_СЮДА)
+    window.location.href = 'ТВОЯ_ССЫЛКА_СЮДА'; 
   } else if (pass !== null) {
     alert("Неверный пароль!");
   }
