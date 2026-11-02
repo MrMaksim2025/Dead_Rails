@@ -3,10 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Dead Rails</title>
+<title>MILITARY MC</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:system-ui,sans-serif;background:#0d0f0c;color:#d4d8c8;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:90px 20px 40px}
+.dev-btn{position:fixed;top:20px;right:20px;padding:10px 20px;background:#161a14;color:#8a9078;border:1px solid #2a2f24;border-radius:4px;font-size:.85rem;cursor:pointer;transition:.2s;z-index:100}
+.dev-btn:hover{border-color:#8fb339;color:#8fb339}
 h1{font-size:2.4rem;letter-spacing:4px;color:#8fb339;text-transform:uppercase;margin-bottom:8px}
 .sub{color:#6a7060;margin-bottom:30px;font-size:.9rem;letter-spacing:2px}
 .btn{display:inline-block;padding:16px 50px;background:#8fb339;color:#0d0f0c;font-weight:700;text-decoration:none;border-radius:4px;letter-spacing:2px;text-transform:uppercase;transition:.2s;box-shadow:0 0 20px rgba(143,179,57,.3)}
@@ -29,8 +31,9 @@ h1{font-size:2.4rem;letter-spacing:4px;color:#8fb339;text-transform:uppercase;ma
 .detail p:last-child{margin-bottom:0}
 .detail b{color:#8fb339}
 .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;width:100%;margin-top:50px}
-.shot{aspect-ratio:16/9;background:#161a14;border:1px solid #2a2f24;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#4a5040;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;transition:border-color .3s}
+.shot{aspect-ratio:16/9;background:#161a14;border:1px solid #2a2f24;border-radius:6px;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:border-color .3s}
 .shot:hover{border-color:#8fb339}
+.shot img{width:100%;height:100%;object-fit:cover;display:block}
 .links{display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;justify-content:center}
 .link{display:inline-block;padding:16px 50px;border-radius:4px;font-weight:700;text-decoration:none;letter-spacing:2px;text-transform:uppercase;font-size:.9rem;transition:.2s}
 .boost{background:#f5a623;color:#0d0f0c;box-shadow:0 0 20px rgba(245,166,35,.25)}
@@ -42,7 +45,9 @@ footer{margin-top:auto;padding-top:80px;color:#4a5040;font-size:.75rem;letter-sp
 </style>
 </head>
 <body>
-<h1>Dead Rails</h1>
+<button class="dev-btn" id="devBtn">Для разработчиков</button>
+
+<h1>Military MC</h1>
 <p class="sub">Тактический сервер Minecraft</p>
 <a href="launcher.exe" download class="btn">Скачать лаунчер</a>
 
@@ -72,9 +77,9 @@ footer{margin-top:auto;padding-top:80px;color:#4a5040;font-size:.75rem;letter-sp
 </div>
 
 <div class="shots">
-  <div class="shot">Скриншот 1</div>
-  <div class="shot">Скриншот 2</div>
-  <div class="shot">Скриншот 3</div>
+  <div class="shot"><img src="screen1.png" alt="Скриншот 1"></div>
+  <div class="shot"><img src="screen2.png" alt="Скриншот 2"></div>
+  <div class="shot"><img src="screen3.png" alt="Скриншот 3"></div>
 </div>
 
 <div class="links">
@@ -82,9 +87,10 @@ footer{margin-top:auto;padding-top:80px;color:#4a5040;font-size:.75rem;letter-sp
   <a href="#" class="link discord">Discord</a>
 </div>
 
-<footer>© 2026 Dead Rails</footer>
+<footer>© 2026 Military MC</footer>
 
 <script>
+// Анимация карточек
 (function(){
   var cards=document.querySelectorAll('#cards .card'),details=document.querySelectorAll('#cards .detail'),openId=null;
   function closeAll(){cards.forEach(function(c){c.classList.remove('open')});details.forEach(function(d){d.classList.remove('visible')});openId=null}
@@ -93,6 +99,21 @@ footer{margin-top:auto;padding-top:80px;color:#4a5040;font-size:.75rem;letter-sp
   document.onclick=function(e){if(openId&&!e.target.closest('#cards'))closeAll()};
   document.onkeydown=function(e){if(e.key==='Escape')closeAll()};
 })();
+
+// Кнопка для разработчиков
+document.getElementById('devBtn').onclick = function() {
+  var pass = prompt("Введите пароль для доступа к файлам разработчика:");
+  if (pass === "44441111") {
+    var a = document.createElement('a');
+    a.href = 'server.zip'; // Скачивание архива с сервером
+    a.download = 'server.zip';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  } else if (pass !== null) {
+    alert("Неверный пароль!");
+  }
+};
 </script>
 </body>
 </html>
