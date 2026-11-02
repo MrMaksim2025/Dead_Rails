@@ -104,12 +104,10 @@ footer{margin-top:auto;padding-top:80px;color:#4a5040;font-size:.75rem;letter-sp
 document.getElementById('devBtn').onclick = function() {
   var pass = prompt("Введите пароль для доступа к файлам разработчика:");
   if (pass === "44441111") {
-    // ВСТАВЬ СВОЮ ССЫЛКУ НА GOOGLE ДИСК НИЖЕ (вместо ТВОЯ_ССЫЛКА_СЮДА)
-    window.location.href = 'https://drive.google.com/drive/folders/1P-t3kE-JXmLXx4M2vjOUzwNqgdxTyROX?usp=sharing'; 
+    // ВСТАВЬ СВОЮ ССЫЛКУ НА GOOGLE ДИСК ВМЕСТО ТВОЯ_ССЫЛКА_СЮДА
+    window.open('ТВОЯ_ССЫЛКА_СЮДА', '_blank'); 
   } else if (pass !== null) {
     alert("Неверный пароль!");
   }
 };
 </script>
-</body>
-</html>
